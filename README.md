@@ -51,3 +51,28 @@ const GoogleMapsLoader = (() => {
     };
 
 })();
+
+___________
+
+<div id="map" style="width:100%; height:400px;"></div>
+
+<script>
+    function initMap() {
+        const map = new google.maps.Map(document.getElementById("map"), {
+            center: { lat: 19.4326, lng: -99.1332 },
+            zoom: 14
+        });
+
+        // Si el contenedor estaba oculto o se cargó tarde:
+        setTimeout(function () {
+            google.maps.event.trigger(map, "resize");
+            map.setCenter({ lat: 19.4326, lng: -99.1332 });
+        }, 300);
+    }
+</script>
+
+<script 
+    src="https://maps.googleapis.com/maps/api/js?key=TU_API_KEY&callback=initMap"
+    async
+    defer>
+</script>
